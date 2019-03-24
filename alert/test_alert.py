@@ -3,13 +3,14 @@
 import unittest
 from selenium import webdriver
 import time
+import os
 
 class AlertTest(unittest.TestCase):
 
     # Instrukcje, które zostaną automatycznie wykonane przed każdym testem
     def setUp(self):
-        self.driver = webdriver.Firefox()
-        self.driver.get("file:///home/gralu/Dokumenty/nowe%20selenium/alert.html")
+        self.driver = webdriver.Chrome()
+        self.driver.get("file://" + os.getcwd()+"/alert.html")
 
     # Metody rozpoczynające się od słowa "test" - czyli moje testy
     def test_simple_alert(self):
