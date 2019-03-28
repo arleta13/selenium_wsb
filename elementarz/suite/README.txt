@@ -1,9 +1,9 @@
-1. Proszę uruchomić testsuite.py:
+1. Proszę uruchomić suite.py:
 
-python testsuite.py
+python suite.py
 
-2. Proszę uruchomić testsuiteraport.py
+2. Proszę uruchomić suiteraport.py
 
-python testsuiteraport.py
+python suiteraport.py
 
 Utworzy nam się plik test_results.html z wynikami testów

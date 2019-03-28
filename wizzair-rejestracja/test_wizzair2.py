@@ -56,7 +56,7 @@ invalid_email = "dicklaurent.wp.pl"
 valid_password = "Qshiukk12"
 
 
-class WizzairRegistration(unittest.TestCase):
+class WizzairRegistration2(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()

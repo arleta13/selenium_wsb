@@ -11,9 +11,10 @@ class GoogleCheck(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
         """
         Tu mogę zastosować implicit wait
-        
+
         Jeśli webdriver nie odnajdzie od razu elementu,
         to będzie próbował to zrobić do skutku przez
         okres 10 sekund. Od momentu wywołania, metoda będzie
@@ -30,31 +31,31 @@ class GoogleCheck(unittest.TestCase):
         enter.submit()
         """
         Explicit wait - mechanizm, który pozwala
-        czekać na zajście określonego warunku przez określony czas. 
+        czekać na zajście określonego warunku przez określony czas.
         Dotyczy tylko miejsca w kodzie, w którym jest zastosowany.
         WebDriverWait domyślnie wywołuje ExpectedCondition (sprawdza warunek)
         co 500 milisekund, aż w końcu on wystąpi.
-        
+
         W naszym przykładzie będzie to czekanie na to,
         aż google zwróci nam wyniki poszukiwań dla zapytania "tester"
-           
+
         WebDriverWait <- klasa, która zawiera w sobie metody czekania
         dla webdrivera (zadajemy: sterownik, czas czekania w sekundach)
-        
+
         until "dopóki" <- metoda przyjmuje warunek jaki ma wystąpić,
         zanim pójdziemy dalej
-        
+
         presence_of_all_elements_located <- warunek jaki ma wystąpić
         (Czekam na pojawienie się elementów - metoda zawarta w expected_conditions
         której nazwę skróciłem podczas importu do "EC")
-        
+
         By.CLASS_NAME,"g" <- szukam po nazwie klasy "g"
-        
+
         Po wykonaniu się warunku, metoda zwraca elementy,
         które zapisuję do listy results. Jeśli upłynie 10 sekund zanim
         uda się znaleźć co najmniej jeden element, skrypt wyrzuci wyjątek
         TimeoutException
-        
+
         """
         results = WebDriverWait(self.driver, 10)\
             .until(EC.presence_of_all_elements_located(

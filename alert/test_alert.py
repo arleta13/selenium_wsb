@@ -5,7 +5,7 @@ from selenium import webdriver
 import time
 import os
 
-class AlertTest(unittest.TestCase):
+class AlertHandler(unittest.TestCase):
 
     # Instrukcje, które zostaną automatycznie wykonane przed każdym testem
     def setUp(self):
@@ -16,30 +16,31 @@ class AlertTest(unittest.TestCase):
     def test_simple_alert(self):
         driver = self.driver
         driver.find_element_by_id("zwykly").click()
-	#driver.switch_to_alert() <-DEPRECATED
-        moj_alert = driver.switch_to.alert
+	    #driver.switch_to_alert() <- Przestarzałe
         time.sleep(2)
+        moj_alert = driver.switch_to.alert
         moj_alert.accept()
-        print("zaakceptowano alert")
+        print("Zaakceptowano alert")
 
     def test_prompt(self):
         driver = self.driver
         driver.find_element_by_id("prompt").click()
-	#driver.switch_to_alert() <-DEPRECATED
+	    #driver.switch_to_alert() <- Przestarzałe
+        time.sleep(2)
         prompt_alert = driver.switch_to.alert
         prompt_alert.send_keys("Radoslaw Patlewicz")
         prompt_alert.accept()
         print(driver.find_element_by_id("name").text)
-        time.sleep(2)
+
 
     def test_confirm(self):
         driver = self.driver
         driver.find_element_by_id("conf").click()
-	#driver.switch_to_alert() <-DEPRECATED
+        time.sleep(2)
+	    #driver.switch_to_alert() <- Przestarzałe
         conf_alert = driver.switch_to.alert
         conf_alert.accept()
         print(driver.find_element_by_id("tinder").text)
-        time.sleep(2)
 
     # Instrukcje, które zostaną automatycznie wykonane po każdym teście
     def tearDown(self):

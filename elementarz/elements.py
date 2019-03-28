@@ -20,6 +20,7 @@ class WsbPlSearch(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
         self.driver.set_page_load_timeout(20)
 
     def test_click_on_link(self):
